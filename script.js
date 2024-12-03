@@ -3,7 +3,7 @@ const resultDiv = document.getElementById('result');
 const twoPlayerButton = document.getElementById('two-player');
 const vsComputerButton = document.getElementById('vs-computer');
 
-let gameMode = ''; // 'two-player' or 'vs-computer'
+let gameMode = ''; // 'two-player' oder 'vs-computer'
 let currentPlayer = 'X'; // 'X' startet immer
 let board = Array(9).fill(null); // Tic-Tac-Toe Board (9 Felder)
 let gameOver = false; // Flag, ob das Spiel beendet ist
@@ -17,6 +17,7 @@ function initializeBoard() {
 
     for (let i = 0; i < 9; i++) {
         const cell = document.createElement('div');
+        cell.classList.add('cell'); // Optional: Füge eine CSS-Klasse hinzu
         cell.addEventListener('click', () => makeMove(i)); // Event-Listener für den Klick auf das Feld
         gameBoard.appendChild(cell);
     }
@@ -57,7 +58,7 @@ function makeMove(index) {
 function updateBoard() {
     const cells = gameBoard.children;
     board.forEach((value, index) => {
-        cells[index].innerText = value;
+        cells[index].innerText = value; // Setze das Symbol in die Zelle
     });
 }
 
